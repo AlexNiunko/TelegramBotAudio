@@ -30,6 +30,7 @@ public class Bot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         SendMessage sendMessage=new SendMessage();
         sendMessage.setChatId(update.getMessage().getChatId().toString());
+
         KeyboardRow keyboardRow1=new KeyboardRow();
         keyboardRow1.add(new KeyboardButton("Rammstein"));
         KeyboardRow keyboardRow2=new KeyboardRow();
@@ -45,6 +46,7 @@ public class Bot extends TelegramLongPollingBot {
 
         sendMessage.setText(update.getMessage().getText());
         sendMessage.setReplyMarkup(replyKeyboardMarkup);
+
         SendAudio sendAudio= new SendAudio();
         sendAudio.setChatId(update.getMessage().getChatId().toString());
         InputFile inputFile=new InputFile();
@@ -66,6 +68,5 @@ public class Bot extends TelegramLongPollingBot {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
-
     }
 }
